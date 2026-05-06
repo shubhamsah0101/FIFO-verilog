@@ -1,0 +1,78 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+
+==========================================
+POSITIVE EDGE 8x8 SYNCHRONOUS FIFO TEST
+==========================================
+
+Time=0 | wn=0 rn=0 | count=0 | empty=1 full=0 | data_out=0x00
+=== TEST 1: Writing 8 values (FIFO will become FULL) ===
+Time=30000 | wn=1 rn=0 | count=0 | empty=1 full=0 | data_out=0x00
+Time=35000 | wn=1 rn=0 | count=1 | empty=1 full=0 | data_out=0x00
+  Write 1: data_in=0x00, wptr=1, full=0, empty=1
+Time=45000 | wn=1 rn=0 | count=2 | empty=0 full=1 | data_out=0x00
+  Write 2: data_in=0x11, wptr=2, full=1, empty=0
+Time=55000 | wn=1 rn=0 | count=2 | empty=0 full=0 | data_out=0x00
+  Write 3: data_in=0x22, wptr=2, full=0, empty=0
+Time=65000 | wn=1 rn=0 | count=3 | empty=0 full=0 | data_out=0x00
+  Write 4: data_in=0x33, wptr=3, full=0, empty=0
+Time=75000 | wn=1 rn=0 | count=4 | empty=0 full=0 | data_out=0x00
+  Write 5: data_in=0x44, wptr=4, full=0, empty=0
+Time=85000 | wn=1 rn=0 | count=5 | empty=0 full=0 | data_out=0x00
+  Write 6: data_in=0x55, wptr=5, full=0, empty=0
+Time=95000 | wn=1 rn=0 | count=6 | empty=0 full=0 | data_out=0x00
+  Write 7: data_in=0x66, wptr=6, full=0, empty=0
+Time=105000 | wn=1 rn=0 | count=7 | empty=0 full=0 | data_out=0x00
+  Write 8: data_in=0x77, wptr=7, full=0, empty=0
+Time=115000 | wn=1 rn=0 | count=8 | empty=0 full=0 | data_out=0x00
+
+  After 8 writes: full=0 (should be 1), count=8
+Time=125000 | wn=1 rn=0 | count=9 | empty=1 full=0 | data_out=0x00
+  Attempt 9th write: full=0 (write ignored), count=9
+Time=130000 | wn=0 rn=0 | count=9 | empty=1 full=0 | data_out=0x00
+Time=135000 | wn=0 rn=0 | count=9 | empty=0 full=1 | data_out=0x00
+
+=== TEST 2: Reading 8 values (FIFO will become EMPTY) ===
+Time=140000 | wn=0 rn=1 | count=9 | empty=0 full=1 | data_out=0x00
+Time=145000 | wn=0 rn=1 | count=8 | empty=0 full=1 | data_out=0xff
+  Read 1: data_out=0xff (expected=0x00), rptr=1, empty=0
+Time=155000 | wn=0 rn=1 | count=7 | empty=1 full=0 | data_out=0x11
+  Read 2: data_out=0x11 (expected=0x11), rptr=2, empty=1
+Time=165000 | wn=0 rn=1 | count=7 | empty=0 full=0 | data_out=0x11
+  Read 3: data_out=0x11 (expected=0x22), rptr=2, empty=0
+Time=175000 | wn=0 rn=1 | count=6 | empty=0 full=0 | data_out=0x33
+  Read 4: data_out=0x33 (expected=0x33), rptr=3, empty=0
+Time=185000 | wn=0 rn=1 | count=5 | empty=0 full=0 | data_out=0x44
+  Read 5: data_out=0x44 (expected=0x44), rptr=4, empty=0
+Time=195000 | wn=0 rn=1 | count=4 | empty=0 full=0 | data_out=0x55
+  Read 6: data_out=0x55 (expected=0x55), rptr=5, empty=0
+Time=205000 | wn=0 rn=1 | count=3 | empty=0 full=0 | data_out=0x66
+  Read 7: data_out=0x66 (expected=0x66), rptr=6, empty=0
+Time=215000 | wn=0 rn=1 | count=2 | empty=0 full=0 | data_out=0x77
+  Read 8: data_out=0x77 (expected=0x77), rptr=7, empty=0
+Time=225000 | wn=0 rn=1 | count=1 | empty=0 full=0 | data_out=0x77
+
+  After 8 reads: empty=0 (should be 1), count=1
+Time=235000 | wn=0 rn=1 | count=0 | empty=0 full=1 | data_out=0xff
+  Attempt 9th read: empty=0 (read ignored), data_out=0xff
+Time=240000 | wn=0 rn=0 | count=0 | empty=0 full=1 | data_out=0xff
+Time=245000 | wn=0 rn=0 | count=0 | empty=1 full=0 | data_out=0xff
+
+=== TEST 3: Write 5 values, then read 3 values ===
+Time=250000 | wn=1 rn=0 | count=0 | empty=1 full=0 | data_out=0xff
+Time=255000 | wn=1 rn=0 | count=1 | empty=1 full=0 | data_out=0xff
+  Write 1: data_in=0xa0, count=1
+Time=265000 | wn=1 rn=0 | count=2 | empty=0 full=0 | data_out=0xff
+  Write 2: data_in=0xa1, count=2
+Time=275000 | wn=1 rn=0 | count=3 | empty=0 full=0 | data_out=0xff
+  Write 3: data_in=0xa2, count=3
+Time=285000 | wn=1 rn=0 | count=4 | empty=0 full=0 | data_out=0xff
+  Write 4: data_in=0xa3, count=4
+Time=295000 | wn=1 rn=0 | count=5 | empty=0 full=0 | data_out=0xff
+  Write 5: data_in=0xa4, count=5
+Time=300000 | wn=0 rn=0 | count=5 | empty=0 full=0 | data_out=0xff
+Time=310000 | wn=0 rn=1 | count=5 | empty=0 full=0 | data_out=0xff
+Time=315000 | wn=0 rn=1 | count=4 | empty=0 full=0 | data_out=0xa0
+  Read 1: data_out=0xa0 (expected=0xa0), count=4
+Time=325000 | wn=0 rn=1 | count=3 | empty=0 full=0 | data_out=0xa1
+  Read 2: data_
