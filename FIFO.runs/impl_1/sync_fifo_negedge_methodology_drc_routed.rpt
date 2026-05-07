@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Wed May  6 21:27:05 2026
+| Date         : Thu May  7 23:06:55 2026
 | Host         : SHUBHAM running 64-bit major release  (build 9200)
 | Command      : report_methodology -file sync_fifo_negedge_methodology_drc_routed.rpt -pb sync_fifo_negedge_methodology_drc_routed.pb -rpx sync_fifo_negedge_methodology_drc_routed.rpx
 | Design       : sync_fifo_negedge
@@ -20,14 +20,13 @@ Table of Contents
 1. REPORT SUMMARY
 -----------------
             Netlist: netlist
-          Floorplan: checkpoint_sync_fifo_negedge
+          Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 32
+             Violations found: 22
 +-----------+----------+------------------------------------------------------+------------+
 | Rule      | Severity | Description                                          | Violations |
 +-----------+----------+------------------------------------------------------+------------+
-| TIMING-16 | Warning  | Large setup violation                                | 10         |
 | TIMING-18 | Warning  | Missing input or output delay                        | 20         |
 | XDCC-4    | Warning  | User Clock constraint overwritten with the same name | 1          |
 | XDCC-8    | Warning  | User Clock constraint overwritten on the same source | 1          |
@@ -35,56 +34,6 @@ Table of Contents
 
 2. REPORT DETAILS
 -----------------
-TIMING-16#1 Warning
-Large setup violation  
-There is a large setup violation of -1.755 ns between data_out_reg[2]/C (clocked by clk) and data_out[2] (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#2 Warning
-Large setup violation  
-There is a large setup violation of -1.761 ns between data_out_reg[6]/C (clocked by clk) and data_out[6] (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#3 Warning
-Large setup violation  
-There is a large setup violation of -1.766 ns between data_out_reg[4]/C (clocked by clk) and data_out[4] (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#4 Warning
-Large setup violation  
-There is a large setup violation of -1.769 ns between data_out_reg[0]/C (clocked by clk) and data_out[0] (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#5 Warning
-Large setup violation  
-There is a large setup violation of -1.891 ns between data_out_reg[7]/C (clocked by clk) and data_out[7] (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#6 Warning
-Large setup violation  
-There is a large setup violation of -1.896 ns between data_out_reg[5]/C (clocked by clk) and data_out[5] (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#7 Warning
-Large setup violation  
-There is a large setup violation of -1.899 ns between data_out_reg[3]/C (clocked by clk) and data_out[3] (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#8 Warning
-Large setup violation  
-There is a large setup violation of -1.910 ns between data_out_reg[1]/C (clocked by clk) and data_out[1] (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#9 Warning
-Large setup violation  
-There is a large setup violation of -2.548 ns between count_reg[0]/C (clocked by clk) and full (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#10 Warning
-Large setup violation  
-There is a large setup violation of -2.619 ns between count_reg[2]/C (clocked by clk) and empty (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
 TIMING-18#1 Warning
 Missing input or output delay  
 An input delay is missing on data_in[0] relative to clock(s) clk
@@ -127,12 +76,12 @@ Related violations: <none>
 
 TIMING-18#9 Warning
 Missing input or output delay  
-An input delay is missing on rn relative to clock(s) clk
+An input delay is missing on rd_en relative to clock(s) clk
 Related violations: <none>
 
 TIMING-18#10 Warning
 Missing input or output delay  
-An input delay is missing on wn relative to clock(s) clk
+An input delay is missing on wr_en relative to clock(s) clk
 Related violations: <none>
 
 TIMING-18#11 Warning
@@ -188,15 +137,15 @@ Related violations: <none>
 XDCC-4#1 Warning
 User Clock constraint overwritten with the same name  
 A new clock constraint create_clock overrides a previous user clock constraint with the same name.
-New: create_clock -period 25.000 -name clk -waveform {0.000 12.500} [get_ports clk] (Source: D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc (Line: 8))
-Previous: create_clock -period 12.500 -name clk -waveform {0.000 6.250} [get_ports clk] (Source: D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc (Line: 8))
+New: create_clock -period 25.000 -name clk -waveform {0.000 10.000} [get_ports clk] (Source: D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc (Line: 6))
+Previous: create_clock -period 20.000 -name clk -waveform {0.000 10.000} [get_ports clk] (Source: D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc (Line: 6))
 Related violations: <none>
 
 XDCC-8#1 Warning
 User Clock constraint overwritten on the same source  
 A new clock constraint create_clock overrides a previous user clock constraint defined on the same source.
-New: create_clock -period 25.000 -name clk -waveform {0.000 12.500} [get_ports clk] (Source: D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc (Line: 8))
-Previous: create_clock -period 12.500 -name clk -waveform {0.000 6.250} [get_ports clk] (Source: D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc (Line: 8))
+New: create_clock -period 25.000 -name clk -waveform {0.000 10.000} [get_ports clk] (Source: D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc (Line: 6))
+Previous: create_clock -period 20.000 -name clk -waveform {0.000 10.000} [get_ports clk] (Source: D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc (Line: 6))
 Related violations: <none>
 
 

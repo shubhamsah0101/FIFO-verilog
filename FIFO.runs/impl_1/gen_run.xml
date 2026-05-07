@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1778082958">
-  <File Type="OPT-HWDEF" Name="sync_fifo_negedge.hwdef"/>
-  <File Type="ROUTE-BUS-SKEW" Name="sync_fifo_negedge_bus_skew_routed.rpt"/>
-  <File Type="PA-DCP" Name="sync_fifo_negedge.dcp"/>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1778175365">
   <File Type="BITSTR-BMM" Name="sync_fifo_negedge_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="sync_fifo_negedge_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="sync_fifo_negedge_timing_summary_init.rpt"/>
@@ -13,6 +10,7 @@
   <File Type="ROUTE-PWR-SUM" Name="sync_fifo_negedge_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="sync_fifo_negedge_reports.tcl"/>
   <File Type="OPT-DRC" Name="sync_fifo_negedge_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="sync_fifo_negedge.hwdef"/>
   <File Type="PWROPT-DCP" Name="sync_fifo_negedge_pwropt.dcp"/>
   <File Type="PWROPT-DRC" Name="sync_fifo_negedge_drc_pwropted.rpt"/>
   <File Type="PWROPT-TIMING" Name="sync_fifo_negedge_timing_summary_pwropted.rpt"/>
@@ -24,6 +22,7 @@
   <File Type="PLACE-CTRL" Name="sync_fifo_negedge_control_sets_placed.rpt"/>
   <File Type="PLACE-SIMILARITY" Name="sync_fifo_negedge_incremental_reuse_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="sync_fifo_negedge_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BGN" Name="sync_fifo_negedge.bgn"/>
   <File Type="PLACE-TIMING" Name="sync_fifo_negedge_timing_summary_placed.rpt"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="sync_fifo_negedge_postplace_pwropt.dcp"/>
   <File Type="BG-BIN" Name="sync_fifo_negedge.bin"/>
@@ -53,6 +52,7 @@
   <File Type="ROUTE-TIMING-RPX" Name="sync_fifo_negedge_timing_summary_routed.rpx"/>
   <File Type="ROUTE-SIMILARITY" Name="sync_fifo_negedge_incremental_reuse_routed.rpt"/>
   <File Type="ROUTE-CLK" Name="sync_fifo_negedge_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="sync_fifo_negedge_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="sync_fifo_negedge_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="sync_fifo_negedge_bus_skew_routed.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="sync_fifo_negedge_postroute_physopt.dcp"/>
@@ -66,7 +66,6 @@
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="sync_fifo_negedge_bus_skew_postroute_physopted.rpx"/>
   <File Type="BITSTR-RBT" Name="sync_fifo_negedge.rbt"/>
   <File Type="BITSTR-NKY" Name="sync_fifo_negedge.nky"/>
-  <File Type="BG-BGN" Name="sync_fifo_negedge.bgn"/>
   <File Type="BG-DRC" Name="sync_fifo_negedge.drc"/>
   <File Type="RDI-RDI" Name="sync_fifo_negedge.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>

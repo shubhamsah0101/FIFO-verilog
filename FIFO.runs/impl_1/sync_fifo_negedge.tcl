@@ -60,20 +60,22 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 
 start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  reset_param project.defaultXPMLibraries 
-  open_checkpoint D:/RTL_Design/FIFO/FIFO.runs/impl_1/sync_fifo_negedge.dcp
+  create_project -in_memory -part xc7a35tcpg236-1
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
   set_property webtalk.parent_dir D:/RTL_Design/FIFO/FIFO.cache/wt [current_project]
   set_property parent.project_path D:/RTL_Design/FIFO/FIFO.xpr [current_project]
   set_property ip_output_repo D:/RTL_Design/FIFO/FIFO.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
+  add_files -quiet D:/RTL_Design/FIFO/FIFO.runs/synth_1/sync_fifo_negedge.dcp
+  read_xdc D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc
+  read_xdc D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc
+  link_design -top sync_fifo_negedge -part xc7a35tcpg236-1
   close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {

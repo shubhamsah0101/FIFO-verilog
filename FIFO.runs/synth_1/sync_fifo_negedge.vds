@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Wed May  6 21:24:28 2026
-# Process ID: 7412
+# Start of session at: Thu May  7 23:05:30 2026
+# Process ID: 18900
 # Current directory: D:/RTL_Design/FIFO/FIFO.runs/synth_1
 # Command line: vivado.exe -log sync_fifo_negedge.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source sync_fifo_negedge.tcl
 # Log file: D:/RTL_Design/FIFO/FIFO.runs/synth_1/sync_fifo_negedge.vds
@@ -15,14 +15,17 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 25492 
+INFO: Helper process launched with PID 12136 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 430.344 ; gain = 97.762
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 431.270 ; gain = 99.191
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'sync_fifo_negedge' [D:/RTL_Design/FIFO/FIFO.srcs/sources_1/new/sync_fifo_negedge.v:3]
+	Parameter DWIDTH bound to: 8 - type: integer 
+	Parameter MWIDTH bound to: 8 - type: integer 
+	Parameter PTR_WIDTH bound to: 3 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'sync_fifo_negedge' (1#1) [D:/RTL_Design/FIFO/FIFO.srcs/sources_1/new/sync_fifo_negedge.v:3]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 486.707 ; gain = 154.125
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 486.836 ; gain = 154.758
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -35,10 +38,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 486.707 ; gain = 154.125
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 486.836 ; gain = 154.758
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 486.707 ; gain = 154.125
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 486.836 ; gain = 154.758
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -46,54 +49,48 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc]
-CRITICAL WARNING: [Common 17-165] Too many positional options when parsing '1.000', please type 'set_input_delay -help' for usage info. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc:18]
-CRITICAL WARNING: [Common 17-165] Too many positional options when parsing '1.000', please type 'set_input_delay -help' for usage info. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc:21]
-CRITICAL WARNING: [Common 17-165] Too many positional options when parsing '0.500', please type 'set_output_delay -help' for usage info. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc:27]
-WARNING: [Constraints 18-401] set_false_path: 'reset' is not a valid endpoint. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc:32]
+WARNING: [Constraints 18-401] set_false_path: 'rst' is not a valid endpoint. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc:43]
 Resolution: A valid end point is a data pin of a sequential cell or a primary output or inout port. Please validate that all the objects returned by your query belong to this list.
-CRITICAL WARNING: [Constraints 18-512] set_false_path: list of objects specified for '-to' option contains no valid endpoints. Please check to make sure at least one valid endpoint is specified. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc:32]
+CRITICAL WARNING: [Constraints 18-512] set_false_path: list of objects specified for '-to' option contains no valid endpoints. Please check to make sure at least one valid endpoint is specified. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc:43]
+CRITICAL WARNING: [Designutils 20-1307] Command 'set_fix_hold' is not supported in the xdc constraint file. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc:49]
 Finished Parsing XDC File [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_posedge_const.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/sync_fifo_negedge_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/sync_fifo_negedge_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Parsing XDC File [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc]
-WARNING: [Constraints 18-619] A clock with name 'clk' already exists, overwriting the previous clock with the same name. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc:8]
-CRITICAL WARNING: [Common 17-165] Too many positional options when parsing '2.000', please type 'set_input_delay -help' for usage info. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc:18]
-CRITICAL WARNING: [Common 17-165] Too many positional options when parsing '2.000', please type 'set_input_delay -help' for usage info. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc:21]
-CRITICAL WARNING: [Common 17-165] Too many positional options when parsing '1.500', please type 'set_output_delay -help' for usage info. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc:27]
-WARNING: [Constraints 18-401] set_false_path: 'reset' is not a valid endpoint. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc:32]
+WARNING: [Constraints 18-619] A clock with name 'clk' already exists, overwriting the previous clock with the same name. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc:6]
+WARNING: [Constraints 18-401] set_false_path: 'rst' is not a valid endpoint. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc:43]
 Resolution: A valid end point is a data pin of a sequential cell or a primary output or inout port. Please validate that all the objects returned by your query belong to this list.
-CRITICAL WARNING: [Constraints 18-512] set_false_path: list of objects specified for '-to' option contains no valid endpoints. Please check to make sure at least one valid endpoint is specified. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc:32]
-CRITICAL WARNING: [Netlist 29-177] Cannot set property 'CLOCK_DELAY_VALUE' because the property does not exist. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc:43]
-Resolution: Create this property using create_property command before setting it.
+CRITICAL WARNING: [Constraints 18-512] set_false_path: list of objects specified for '-to' option contains no valid endpoints. Please check to make sure at least one valid endpoint is specified. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc:43]
+CRITICAL WARNING: [Designutils 20-1307] Command 'set_fix_hold' is not supported in the xdc constraint file. [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc:49]
 Finished Parsing XDC File [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/RTL_Design/FIFO/FIFO.srcs/constrs_1/new/sync_fifo_negedge_const.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/sync_fifo_negedge_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/sync_fifo_negedge_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 816.773 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 811.254 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 816.805 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 811.266 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 816.805 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 816.805 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 811.266 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 811.266 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 816.805 ; gain = 484.223
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 811.266 ; gain = 479.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 816.805 ; gain = 484.223
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 811.266 ; gain = 479.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 816.805 ; gain = 484.223
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 811.266 ; gain = 479.188
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/RTL_Design/FIFO/FIFO.srcs/sources_1/new/sync_fifo_negedge.v:65]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/RTL_Design/FIFO/FIFO.srcs/sources_1/new/sync_fifo_negedge.v:64]
 INFO: [Synth 8-5544] ROM "mem_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "mem_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "mem_reg[2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
@@ -103,7 +100,7 @@ INFO: [Synth 8-5544] ROM "mem_reg[5]" won't be mapped to Block RAM because addre
 INFO: [Synth 8-5544] ROM "mem_reg[6]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "mem_reg[7]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 816.805 ; gain = 484.223
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 811.266 ; gain = 479.188
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -122,9 +119,11 @@ Detailed RTL Component Info :
 	                8 Bit    Registers := 9     
 	                4 Bit    Registers := 1     
 	                3 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
 +---Muxes : 
+	   2 Input      3 Bit        Muxes := 2     
 	   4 Input      2 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 9     
 	   2 Input      1 Bit        Muxes := 8     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -142,9 +141,11 @@ Detailed RTL Component Info :
 	                8 Bit    Registers := 9     
 	                4 Bit    Registers := 1     
 	                3 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
 +---Muxes : 
+	   2 Input      3 Bit        Muxes := 2     
 	   4 Input      2 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 9     
 	   2 Input      1 Bit        Muxes := 8     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
@@ -171,7 +172,7 @@ INFO: [Synth 8-5544] ROM "mem_reg[5]" won't be mapped to Block RAM because addre
 INFO: [Synth 8-5544] ROM "mem_reg[6]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "mem_reg[7]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 816.805 ; gain = 484.223
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 811.266 ; gain = 479.188
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -184,13 +185,13 @@ Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-565] redefining clock 'clk'
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 816.805 ; gain = 484.223
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 811.266 ; gain = 479.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 818.465 ; gain = 485.883
+Finished Timing Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 814.742 ; gain = 482.664
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -202,7 +203,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 828.031 ; gain = 495.449
+Finished Technology Mapping : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 824.828 ; gain = 492.750
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -226,7 +227,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 828.031 ; gain = 495.449
+Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 824.828 ; gain = 492.750
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -239,7 +240,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 828.031 ; gain = 495.449
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 824.828 ; gain = 492.750
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -251,25 +252,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 828.031 ; gain = 495.449
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 824.828 ; gain = 492.750
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 828.031 ; gain = 495.449
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 824.828 ; gain = 492.750
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 828.031 ; gain = 495.449
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 824.828 ; gain = 492.750
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 828.031 ; gain = 495.449
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 824.828 ; gain = 492.750
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -287,44 +288,45 @@ Report Cell Usage:
 +------+------+------+
 |1     |BUFG  |     1|
 |2     |LUT1  |     1|
-|3     |LUT3  |     2|
-|4     |LUT4  |    12|
-|5     |LUT5  |     5|
-|6     |LUT6  |    19|
-|7     |MUXF7 |     8|
-|8     |FDCE  |    82|
-|9     |IBUF  |    12|
-|10    |OBUF  |    10|
+|3     |LUT2  |     3|
+|4     |LUT3  |     2|
+|5     |LUT4  |     4|
+|6     |LUT5  |    11|
+|7     |LUT6  |    19|
+|8     |MUXF7 |     8|
+|9     |FDRE  |    84|
+|10    |IBUF  |    12|
+|11    |OBUF  |    10|
 +------+------+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |   152|
+|1     |top      |       |   155|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 828.031 ; gain = 495.449
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 824.828 ; gain = 492.750
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 828.031 ; gain = 165.352
-Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 828.031 ; gain = 495.449
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 824.828 ; gain = 168.320
+Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 824.828 ; gain = 492.750
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 828.629 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 824.828 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-32 Infos, 4 Warnings, 9 Critical Warnings and 0 Errors encountered.
+32 Infos, 4 Warnings, 4 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 828.629 ; gain = 508.941
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 828.629 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 824.828 ; gain = 505.922
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 824.828 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/RTL_Design/FIFO/FIFO.runs/synth_1/sync_fifo_negedge.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file sync_fifo_negedge_utilization_synth.rpt -pb sync_fifo_negedge_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed May  6 21:24:51 2026...
+INFO: [Common 17-206] Exiting Vivado at Thu May  7 23:05:54 2026...

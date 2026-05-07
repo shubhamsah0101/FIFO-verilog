@@ -3,7 +3,7 @@
 Dec  7 2018
 00:33:28
 D:/RTL_Design/FIFO/FIFO.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,
-D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_sync_fifo_negedge.v,1778080800,verilog,,,,tb_sync_fifo_negedge,,,,,,,,
-D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_sync_fifo_posedge.v,1778081738,verilog,,,,tb_sync_fifo_posedge,,,,,,,,
-D:/RTL_Design/FIFO/FIFO.srcs/sources_1/new/sync_fifo_negedge.v,1778082280,verilog,,D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_sync_fifo_negedge.v,,sync_fifo_negedge,,,,,,,,
-D:/RTL_Design/FIFO/FIFO.srcs/sources_1/new/sync_fifo_posedge.v,1778052259,verilog,,D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_sync_fifo_posedge.v,,sync_fifo_posedge,,,,,,,,
+D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_sync_fifo_negedge.v,1778174912,verilog,,,,tb_sync_fifo_negedge,,,,,,,,
+D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_sync_fifo_posedge.v,1778168600,verilog,,,,tb_sync_fifo_posedge,,,,,,,,
+D:/RTL_Design/FIFO/FIFO.srcs/sources_1/new/sync_fifo_negedge.v,1778174602,verilog,,D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_sync_fifo_negedge.v,,sync_fifo_negedge,,,,,,,,
+D:/RTL_Design/FIFO/FIFO.srcs/sources_1/new/sync_fifo_posedge.v,1778169994,verilog,,D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_sync_fifo_posedge.v,,sync_fifo_posedge,,,,,,,,

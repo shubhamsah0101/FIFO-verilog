@@ -1,84 +1,161 @@
 `timescale 1ns / 1ps
 
-//===================================================
-// FULLY CORRECTED Positive Edge 8x8 Synchronous FIFO
-//===================================================
+module sync_fifo_posedge #(
+    parameter DWIDTH = 8,
+    parameter MWIDTH = 8
+)(
+    input  wire                  clk,
+    input  wire                  rst,
+    input  wire [DWIDTH-1:0]     data_in,
+    input  wire                  wr_en,
+    input  wire                  rd_en,
 
-module sync_fifo_posedge (
-    input wire        clk,
-    input wire        reset,
-    input wire        wn,
-    input wire        rn,
-    input wire [7:0]  data_in,
-    output reg [7:0]  data_out,
-    output wire       full,
-    output wire       empty
+    output reg  [DWIDTH-1:0]     data_out,
+    output wire                  full,
+    output wire                  empty
 );
 
-    //===============================================
-    // Internal Signals
-    //===============================================
-    reg [2:0]  wptr;
-    reg [2:0]  rptr;
-    reg [7:0]  mem [0:7];
-    reg [3:0]  count;
+    // ============================================
+    // Pointer Width
+    // ============================================
+    localparam PTR_WIDTH = $clog2(MWIDTH);
 
-    //===============================================
-    // Memory Initialization
-    //===============================================
+    // ============================================
+    // Memory
+    // ============================================
+    reg [DWIDTH-1:0] mem [0:MWIDTH-1];
+
+    // ============================================
+    // Pointers and Counter
+    // ============================================
+    reg [PTR_WIDTH-1:0] wr_ptr;
+    reg [PTR_WIDTH-1:0] rd_ptr;
+
+    reg [PTR_WIDTH:0] count;
+    reg [PTR_WIDTH:0] count_next;
+
+    // ============================================
+    // Registered Flags (helps hold timing)
+    // ============================================
+    reg full_reg;
+    reg empty_reg;
+
+    assign full  = full_reg;
+    assign empty = empty_reg;
+
     integer i;
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            for (i = 0; i < 8; i = i + 1)
-                mem[i] <= 8'b00000000;
-        end else if (wn && !full) begin
-            mem[wptr] <= data_in;
+
+    // ============================================
+    // Next Count Logic
+    // ============================================
+    always @(*) begin
+
+        count_next = count;
+
+        case ({wr_en && !full_reg, rd_en && !empty_reg})
+
+            // Write only
+            2'b10:
+                count_next = count + 1;
+
+            // Read only
+            2'b01:
+                count_next = count - 1;
+
+            // Simultaneous Read/Write
+            2'b11:
+                count_next = count;
+
+            default:
+                count_next = count;
+
+        endcase
+    end
+
+    // ============================================
+    // Sequential FIFO Logic
+    // ============================================
+    always @(posedge clk) begin
+
+        if (rst) begin
+
+            wr_ptr   <= 0;
+            rd_ptr   <= 0;
+            count    <= 0;
+
+            data_out <= 0;
+
+            full_reg  <= 0;
+            empty_reg <= 1;
+
+            // Optional memory initialization
+            for (i = 0; i < MWIDTH; i = i + 1)
+                mem[i] <= 0;
+
+        end
+        else begin
+
+            // ====================================
+            // WRITE ONLY
+            // ====================================
+            if (wr_en && !full_reg && !(rd_en && !empty_reg)) begin
+
+                mem[wr_ptr] <= data_in;
+
+                if (wr_ptr == MWIDTH-1)
+                    wr_ptr <= 0;
+                else
+                    wr_ptr <= wr_ptr + 1;
+            end
+
+            // ====================================
+            // READ ONLY
+            // ====================================
+            else if (rd_en && !empty_reg && !(wr_en && !full_reg)) begin
+
+                data_out <= mem[rd_ptr];
+
+                if (rd_ptr == MWIDTH-1)
+                    rd_ptr <= 0;
+                else
+                    rd_ptr <= rd_ptr + 1;
+            end
+
+            // ====================================
+            // SIMULTANEOUS READ + WRITE
+            // ====================================
+            else if (wr_en && !full_reg &&
+                     rd_en && !empty_reg) begin
+
+                data_out <= mem[rd_ptr];
+
+                mem[wr_ptr] <= data_in;
+
+                // Write pointer
+                if (wr_ptr == MWIDTH-1)
+                    wr_ptr <= 0;
+                else
+                    wr_ptr <= wr_ptr + 1;
+
+                // Read pointer
+                if (rd_ptr == MWIDTH-1)
+                    rd_ptr <= 0;
+                else
+                    rd_ptr <= rd_ptr + 1;
+            end
+
+            // ====================================
+            // Update Count
+            // ====================================
+            count <= count_next;
+
+            // ====================================
+            // Registered Flags
+            // ====================================
+            full_reg  <= (count_next == MWIDTH);
+            empty_reg <= (count_next == 0);
+
         end
     end
-
-    //===============================================
-    // Write Pointer
-    //===============================================
-    always @(posedge clk or posedge reset) begin
-        if (reset)
-            wptr <= 3'b000;
-        else if (wn && !full)
-            wptr <= wptr + 1'b1;
-    end
-
-    //===============================================
-    // Read Pointer and Output (FIXED ORDER)
-    //===============================================
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            rptr <= 3'b000;
-            data_out <= 8'b00000000;
-        end else if (rn && !empty) begin
-            data_out <= mem[rptr];    // Read FIRST
-            rptr <= rptr + 1'b1;      // Then increment
-        end
-    end
-
-    //===============================================
-    // Count Logic (FIXED BOUNDS)
-    //===============================================
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            count <= 4'b0000;
-        end else begin
-            case ({wn && !full, rn && !empty})
-                2'b10: if (count < 8) count <= count + 1'b1;  // Write only
-                2'b01: if (count > 0) count <= count - 1'b1;  // Read only
-                2'b11: count <= count;                         // Simultaneous
-                default: count <= count;
-            endcase
-        end
-    end
-
-    //===============================================
-    // Flag Generation (from count - RELIABLE)
-    //===============================================
-    assign full  = (count == 4'b1000);
-    assign empty = (count == 4'b0000);
 
 endmodule

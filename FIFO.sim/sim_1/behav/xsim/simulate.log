@@ -1,33 +1,40 @@
 Vivado Simulator 2018.3
 Time resolution is 1 ps
 
-==========================================
-VERIFICATION - 8x8 SYNCHRONOUS FIFO (NEGEDGE)
-==========================================
+======================================
+ NEGATIVE EDGE SYNCHRONOUS FIFO TEST 
+======================================
 
---- Writing 8 values ---
-  Write[0] = 0x00 | count=1 | full=0
-  Write[1] = 0x11 | count=2 | full=0
-  Write[2] = 0x22 | count=3 | full=0
-  Write[3] = 0x33 | count=4 | full=0
-  Write[4] = 0x44 | count=5 | full=0
-  Write[5] = 0x55 | count=6 | full=0
-  Write[6] = 0x66 | count=7 | full=0
-  Write[7] = 0x77 | count=8 | full=1
-  Result: full=1, count=8
+Reset Completed
+full=0 empty=0
 
---- Reading 8 values ---
-  Read[0] = 0x00 | expected=0x00 | count=7 | empty=0
-  Read[1] = 0x11 | expected=0x11 | count=6 | empty=0
-  Read[2] = 0x22 | expected=0x22 | count=5 | empty=0
-  Read[3] = 0x33 | expected=0x33 | count=4 | empty=0
-  Read[4] = 0x44 | expected=0x44 | count=3 | empty=0
-  Read[5] = 0x55 | expected=0x55 | count=2 | empty=0
-  Read[6] = 0x66 | expected=0x66 | count=1 | empty=0
-  Read[7] = 0x77 | expected=0x77 | count=0 | empty=1
-  Result: empty=1, count=0
+--- Writing Data ---
+WRITE : 0 -> data = 0x20 | full=0 empty=0
+WRITE : 1 -> data = 0x21 | full=0 empty=0
+WRITE : 2 -> data = 0x22 | full=0 empty=0
+WRITE : 3 -> data = 0x23 | full=0 empty=0
+WRITE : 4 -> data = 0x24 | full=0 empty=0
+WRITE : 5 -> data = 0x25 | full=0 empty=0
+WRITE : 6 -> data = 0x26 | full=0 empty=0
+WRITE : 7 -> data = 0x27 | full=1 empty=0
 
-TEST PASSED: FIFO correctly emptied
+After Write:
+full=0 empty=0
 
-==========================================
-$finish called at time : 210 ns : File "D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_sync_fifo_negedge.v" Line 73
+--- Reading Data ---
+READ  : 0 -> data = 0x20 | full=0 empty=0
+READ  : 1 -> data = 0x21 | full=0 empty=0
+READ  : 2 -> data = 0x22 | full=0 empty=0
+READ  : 3 -> data = 0x23 | full=0 empty=0
+READ  : 4 -> data = 0x24 | full=0 empty=0
+READ  : 5 -> data = 0x25 | full=0 empty=0
+READ  : 6 -> data = 0x26 | full=0 empty=0
+READ  : 7 -> data = 0x27 | full=0 empty=1
+
+Final Status:
+full=0 empty=1
+
+TEST PASSED
+
+======================================
+$finish called at time : 202 ns : File "D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_sync_fifo_negedge.v" Line 128
