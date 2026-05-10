@@ -2,11 +2,11 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Thu May  7 23:05:30 2026
-# Process ID: 18900
+# Start of session at: Sun May 10 20:42:55 2026
+# Process ID: 26036
 # Current directory: D:/RTL_Design/FIFO/FIFO.runs/synth_1
-# Command line: vivado.exe -log sync_fifo_negedge.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source sync_fifo_negedge.tcl
-# Log file: D:/RTL_Design/FIFO/FIFO.runs/synth_1/sync_fifo_negedge.vds
+# Command line: vivado.exe -log async_fifo_posedge.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source async_fifo_posedge.tcl
+# Log file: D:/RTL_Design/FIFO/FIFO.runs/synth_1/async_fifo_posedge.vds
 # Journal file: D:/RTL_Design/FIFO/FIFO.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source sync_fifo_negedge.tcl -notrace
+source async_fifo_posedge.tcl -notrace
