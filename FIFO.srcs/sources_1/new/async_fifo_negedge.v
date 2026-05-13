@@ -12,11 +12,16 @@ module async_fifo_negedge #(
     output reg full, empty
 );
 
-    localparam ADDR_WIDTH = $clog2(DEPTH);
+    localparam ADDR_WIDTH = $clog2(DEPTH);  // 3 bits for 8 depth
+    localparam PTR_WIDTH = ADDR_WIDTH + 1;  // 4 bits (extra for wrap)
     
     reg [WIDTH-1:0] mem [0:DEPTH-1];
-    reg [ADDR_WIDTH:0] wptr, rptr;
-    reg [ADDR_WIDTH:0] wptr_sync, rptr_sync;
+    reg [PTR_WIDTH-1:0] wptr, rptr;
+    wire [PTR_WIDTH-1:0] wptr_sync, rptr_sync;  // Changed to wire
+    reg [PTR_WIDTH-1:0] wptr_sync1, wptr_sync2;
+    reg [PTR_WIDTH-1:0] rptr_sync1, rptr_sync2;
+    
+    integer i;
     
     //===============================================
     // WRITE LOGIC (Negative Edge)
@@ -24,6 +29,9 @@ module async_fifo_negedge #(
     always @(negedge wclk or negedge wrst_n) begin
         if (!wrst_n) begin
             wptr <= 0;
+            full <= 0;
+            for (i = 0; i < DEPTH; i = i + 1)
+                mem[i] <= 0;
         end else if (wr_en && !full) begin
             mem[wptr[ADDR_WIDTH-1:0]] <= wdata;
             wptr <= wptr + 1;
@@ -32,43 +40,64 @@ module async_fifo_negedge #(
     
     //===============================================
     // READ LOGIC (Negative Edge)
-    // Read data on same cycle
     //===============================================
     always @(negedge rclk or negedge rrst_n) begin
         if (!rrst_n) begin
             rptr <= 0;
             rdata <= 0;
+            empty <= 1;
         end else if (rd_en && !empty) begin
-            rdata <= mem[rptr[ADDR_WIDTH-1:0]];  // Read current location
-            rptr <= rptr + 1;                     // Then increment pointer
+            rdata <= mem[rptr[ADDR_WIDTH-1:0]];
+            rptr <= rptr + 1;
         end
     end
     
     //===============================================
-    // SYNCHRONIZE POINTERS (Negative Edge)
+    // DUAL SYNC: Write pointer to read clock domain
     //===============================================
-    // Sync write pointer to read clock domain
     always @(negedge rclk or negedge rrst_n) begin
-        if (!rrst_n)
-            wptr_sync <= 0;
-        else
-            wptr_sync <= wptr;
+        if (!rrst_n) begin
+            wptr_sync1 <= 0;
+            wptr_sync2 <= 0;
+        end else begin
+            wptr_sync1 <= wptr;
+            wptr_sync2 <= wptr_sync1;
+        end
     end
+    assign wptr_sync = wptr_sync2;  // Now works because wptr_sync is wire
     
-    // Sync read pointer to write clock domain
+    //===============================================
+    // DUAL SYNC: Read pointer to write clock domain
+    //===============================================
+    always @(negedge wclk or negedge wrst_n) begin
+        if (!wrst_n) begin
+            rptr_sync1 <= 0;
+            rptr_sync2 <= 0;
+        end else begin
+            rptr_sync1 <= rptr;
+            rptr_sync2 <= rptr_sync1;
+        end
+    end
+    assign rptr_sync = rptr_sync2;  // Now works because rptr_sync is wire
+    
+    //===============================================
+    // FULL FLAG (Write Domain)
+    //===============================================
     always @(negedge wclk or negedge wrst_n) begin
         if (!wrst_n)
-            rptr_sync <= 0;
+            full <= 0;
         else
-            rptr_sync <= rptr;
+            full <= (wptr == {~rptr_sync[PTR_WIDTH-1], rptr_sync[PTR_WIDTH-2:0]});
     end
     
     //===============================================
-    // FULL & EMPTY DETECTION (Combinational)
+    // EMPTY FLAG (Read Domain)
     //===============================================
-    always @* begin
-        full = (wptr == {~rptr_sync[ADDR_WIDTH], rptr_sync[ADDR_WIDTH-1:0]});
-        empty = (rptr == wptr_sync);
+    always @(negedge rclk or negedge rrst_n) begin
+        if (!rrst_n)
+            empty <= 1;
+        else
+            empty <= (rptr == wptr_sync);
     end
-    
+
 endmodule

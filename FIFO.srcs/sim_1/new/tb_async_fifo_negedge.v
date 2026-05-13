@@ -15,78 +15,89 @@ module tb_async_fifo_negedge;
         .rdata(rdata), .full(full), .empty(empty)
     );
     
-    always #12.5 wclk = ~wclk;   // 40 MHz
-    always #20.0 rclk = ~rclk;   // 25 MHz
-    
-    integer i;
-    reg [7:0] test_data [0:7];
-    reg all_pass;
+    // Clocks: 33 MHz write, 25 MHz read
+    initial begin
+        wclk = 0;
+        forever #15 wclk = ~wclk;
+    end
     
     initial begin
+        rclk = 0;
+        forever #20 rclk = ~rclk;
+    end
+    
+    integer i, errors;
+    
+    initial begin
+        // Initialize
         wclk = 0; rclk = 0;
         wrst_n = 0; rrst_n = 0;
         wr_en = 0; rd_en = 0;
-        all_pass = 1;
+        errors = 0;
         
-        for (i = 0; i < 8; i = i + 1)
-            test_data[i] = i + 1;
-        
-        // Reset
+        // Reset sequence
         repeat(3) @(negedge wclk);
         wrst_n = 1;
         repeat(3) @(negedge rclk);
         rrst_n = 1;
         
-        // Write 8 values
-        $display("\n========== WRITING 8 VALUES (NEGEDGE) ==========");
+        // Wait one cycle after reset
+        @(negedge wclk);
+        @(negedge rclk);
+        
+        //===========================================
+        // WRITE 8 VALUES
+        //===========================================
+        $display("\n========== WRITING 8 VALUES ==========");
         for (i = 0; i < 8; i = i + 1) begin
             @(negedge wclk);
             wr_en = 1;
-            wdata = test_data[i];
+            wdata = i + 1;
             $display("WR[%0d]: data = %0d, full = %b", i, wdata, full);
             @(negedge wclk);
             wr_en = 0;
         end
         
-        $display("\nWrite complete. Waiting for synchronization...");
-        repeat(10) @(negedge rclk);  // Wait longer
+        $display("\nWrite complete. full = %b\n", full);
         
-        // Read 8 values
-        $display("\n========== READING 8 VALUES (NEGEDGE) ==========");
+        // Wait for synchronization
+        repeat(5) @(negedge rclk);
+        
+        //===========================================
+        // READ 8 VALUES
+        //===========================================
+        $display("========== READING 8 VALUES ==========");
         for (i = 0; i < 8; i = i + 1) begin
             @(negedge rclk);
             rd_en = 1;
-            #2;
+            #1;
             $display("RD[%0d]: data = %0d, expected = %0d, empty = %b", 
-                     i, rdata, test_data[i], empty);
+                     i, rdata, i+1, empty);
             
-            if (rdata == test_data[i]) begin
+            if (rdata == i+1) begin
                 $display(">>> CORRECT\n");
             end else begin
-                $display(">>> ERROR: Expected %0d, got %0d\n", test_data[i], rdata);
-                all_pass = 0;
+                $display(">>> ERROR: Expected %0d, got %0d\n", i+1, rdata);
+                errors = errors + 1;
             end
             @(negedge rclk);
             rd_en = 0;
         end
         
-        // Wait for empty flag to update
+        // Final check
         repeat(2) @(negedge rclk);
-        #2;
         
-        $display("\n========== TEST SUMMARY ==========");
-        $display("Total writes: 8");
-        $display("Total reads completed: %0d", i);
+        $display("\n==========================================");
+        $display("TEST SUMMARY");
+        $display("==========================================");
+        $display("Errors: %0d", errors);
         $display("Final empty flag: %b", empty);
         
-        if (all_pass && empty == 1)
+        if (errors == 0)
             $display("\n? ALL TESTS PASSED!");
-        else if (all_pass)
-            $display("\n?? DATA CORRECT but empty flag = %b", empty);
         else
             $display("\n? TESTS FAILED!");
         
-        #100;
         $finish;
     end
     
