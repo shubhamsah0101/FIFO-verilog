@@ -3,8 +3,8 @@
   <File Type="PA-TCL" Name="async_fifo_posedge.tcl"/>
   <File Type="REPORTS-TCL" Name="async_fifo_posedge_reports.tcl"/>
   <File Type="RDS-RDS" Name="async_fifo_posedge.vds"/>
-  <File Type="RDS-UTIL" Name="async_fifo_posedge_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="async_fifo_posedge_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="sync_fifo_posedge_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="sync_fifo_posedge_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="async_fifo_posedge.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>

@@ -1,13 +1,15 @@
-Vivado Simulator 2018.3
-Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: D:/Vivado_2018/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 9698c0d908be44008808c60169091e20 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_async_fifo_negedge_behav xil_defaultlib.tb_async_fifo_negedge xil_defaultlib.glbl -log elaborate.log 
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/VIVADO_SIFTWARE/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_sync_fifo_posedge_behav xil_defaultlib.tb_sync_fifo_posedge xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+Pass Through NonSizing Optimizer
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.async_fifo_negedge_default
-Compiling module xil_defaultlib.tb_async_fifo_negedge
+Compiling module xil_defaultlib.sync_fifo_posedge_default
+Compiling module xil_defaultlib.tb_sync_fifo_posedge
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_async_fifo_negedge_behav
+Built simulation snapshot tb_sync_fifo_posedge_behav

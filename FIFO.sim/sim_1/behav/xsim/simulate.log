@@ -1,49 +1,39 @@
-Vivado Simulator 2018.3
 Time resolution is 1 ps
 
-========== WRITING 8 VALUES ==========
-WR[0]: data = 1, full = 0
-WR[1]: data = 2, full = 0
-WR[2]: data = 3, full = 0
-WR[3]: data = 4, full = 0
-WR[4]: data = 5, full = 0
-WR[5]: data = 6, full = 0
-WR[6]: data = 7, full = 0
-WR[7]: data = 8, full = 0
+======================================
+ SYNCHRONOUS FIFO TEST 
+======================================
 
-Write complete. full = 0
+Reset Completed
+full=0 empty=1
 
-========== READING 8 VALUES ==========
-RD[0]: data = 1, expected = 1, empty = 0
->>> CORRECT
+--- Writing Data ---
+WRITE : 0 -> data = 0x10 | full=0 empty=1
+WRITE : 1 -> data = 0x11 | full=0 empty=0
+WRITE : 2 -> data = 0x12 | full=0 empty=0
+WRITE : 3 -> data = 0x13 | full=0 empty=0
+WRITE : 4 -> data = 0x14 | full=0 empty=0
+WRITE : 5 -> data = 0x15 | full=0 empty=0
+WRITE : 6 -> data = 0x16 | full=0 empty=0
+WRITE : 7 -> data = 0x17 | full=0 empty=0
 
-RD[1]: data = 2, expected = 2, empty = 0
->>> CORRECT
+After Write:
+full=1 empty=0
 
-RD[2]: data = 3, expected = 3, empty = 0
->>> CORRECT
+--- Reading Data ---
+READ  : 0 -> data = 0x10 | full=1 empty=0
+READ  : 1 -> data = 0x11 | full=0 empty=0
+READ  : 2 -> data = 0x12 | full=0 empty=0
+READ  : 3 -> data = 0x13 | full=0 empty=0
+READ  : 4 -> data = 0x14 | full=0 empty=0
+READ  : 5 -> data = 0x15 | full=0 empty=0
+READ  : 6 -> data = 0x16 | full=0 empty=0
+READ  : 7 -> data = 0x17 | full=0 empty=0
 
-RD[3]: data = 4, expected = 4, empty = 0
->>> CORRECT
+Final Status:
+full=0 empty=1
 
-RD[4]: data = 5, expected = 5, empty = 0
->>> CORRECT
+TEST PASSED
 
-RD[5]: data = 6, expected = 6, empty = 0
->>> CORRECT
-
-RD[6]: data = 7, expected = 7, empty = 0
->>> CORRECT
-
-RD[7]: data = 8, expected = 8, empty = 0
->>> CORRECT
-
-
-==========================================
-TEST SUMMARY
-==========================================
-Errors: 0
-Final empty flag: 1
-
-? ALL TESTS PASSED!
-$finish called at time : 1640 ns : File "D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_async_fifo_negedge.v" Line 101
+======================================
+$finish called at time : 206 ns : File "D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_sync_fifo_posedge.v" Line 127
