@@ -7,6 +7,7 @@
   <File Type="BITSTR-MSK" Name="async_fifo_posedge.msk"/>
   <File Type="ROUTE-CLK" Name="sync_fifo_posedge_clock_utilization_routed.rpt"/>
   <File Type="RDI-RDI" Name="async_fifo_posedge.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="sync_fifo_posedge_bus_skew_postroute_physopted.pb"/>
   <File Type="BG-BIT" Name="async_fifo_posedge.bit"/>
   <File Type="BG-DRC" Name="async_fifo_posedge.drc"/>
   <File Type="BG-BGN" Name="async_fifo_posedge.bgn"/>
@@ -38,6 +39,7 @@
   <File Type="ROUTE-TIMINGSUMMARY" Name="sync_fifo_posedge_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="async_fifo_posedge_timing_summary_routed.pb"/>
   <File Type="ROUTE-TIMING-RPX" Name="sync_fifo_posedge_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="sync_fifo_posedge_incremental_reuse_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW" Name="sync_fifo_posedge_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="sync_fifo_posedge_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="sync_fifo_posedge_bus_skew_routed.rpx"/>
@@ -48,15 +50,13 @@
   <File Type="PHYSOPT-DCP" Name="async_fifo_posedge_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="async_fifo_posedge_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="async_fifo_posedge_postroute_physopt_bb.dcp"/>
-  <File Type="ROUTE-DRC-RPX" Name="sync_fifo_posedge_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="sync_fifo_posedge_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="sync_fifo_posedge_incremental_reuse_routed.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING" Name="sync_fifo_posedge_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="sync_fifo_posedge_timing_summary_postroute_physopted.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="sync_fifo_posedge_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="sync_fifo_posedge_timing_summary_postroute_physopted.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="sync_fifo_posedge_bus_skew_postroute_physopted.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="sync_fifo_posedge_bus_skew_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="sync_fifo_posedge_bus_skew_postroute_physopted.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="sync_fifo_posedge_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="sync_fifo_posedge_methodology_drc_routed.rpx"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/async_fifo_posedge.v">
