@@ -272,13 +272,14 @@ FPGA synthesis results:
 
 # Author
 
-**Shubham Sah**
+**Shubham Kumar Sah**
 
-Electronics and Communication Engineering
+B.Tech Electronics and Communication Engineering
 
 Areas of Interest:
 
+* VLSI Design
 * RTL Design
-* FPGA Development
 * ASIC Design
+* Processor Architecture
 * Functional Verification
