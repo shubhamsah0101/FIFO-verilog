@@ -1,7 +1,7 @@
-Running: xsim.dir/tb_async_fifo_posedge_behav/xsimk.exe -simmode gui -wdb tb_async_fifo_posedge_behav.wdb -simrunnum 0 -socket 57825
+Running: xsim.dir/tb_async_fifo_posedge_behav/xsimk.exe -simmode gui -wdb tb_async_fifo_posedge_behav.wdb -simrunnum 0 -socket 53796
 Design successfully loaded
-Design Loading Memory Usage: 7968 KB (Peak: 7968 KB)
-Design Loading CPU Usage: 0 ms
+Design Loading Memory Usage: 10672 KB (Peak: 10672 KB)
+Design Loading CPU Usage: 15 ms
 Simulation completed
-Simulation Memory Usage: 8680 KB (Peak: 8680 KB)
-Simulation CPU Usage: 30 ms
+Simulation Memory Usage: 11340 KB (Peak: 11340 KB)
+Simulation CPU Usage: 31 ms

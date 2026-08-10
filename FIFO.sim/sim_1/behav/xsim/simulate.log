@@ -1,39 +1,21 @@
 Time resolution is 1 ps
-
-======================================
- SYNCHRONOUS FIFO TEST 
-======================================
-
-Reset Completed
-full=0 empty=1
-
---- Writing Data ---
-WRITE : 0 -> data = 0x10 | full=0 empty=1
-WRITE : 1 -> data = 0x11 | full=0 empty=0
-WRITE : 2 -> data = 0x12 | full=0 empty=0
-WRITE : 3 -> data = 0x13 | full=0 empty=0
-WRITE : 4 -> data = 0x14 | full=0 empty=0
-WRITE : 5 -> data = 0x15 | full=0 empty=0
-WRITE : 6 -> data = 0x16 | full=0 empty=0
-WRITE : 7 -> data = 0x17 | full=0 empty=0
-
-After Write:
-full=1 empty=0
-
---- Reading Data ---
-READ  : 0 -> data = 0x10 | full=1 empty=0
-READ  : 1 -> data = 0x11 | full=0 empty=0
-READ  : 2 -> data = 0x12 | full=0 empty=0
-READ  : 3 -> data = 0x13 | full=0 empty=0
-READ  : 4 -> data = 0x14 | full=0 empty=0
-READ  : 5 -> data = 0x15 | full=0 empty=0
-READ  : 6 -> data = 0x16 | full=0 empty=0
-READ  : 7 -> data = 0x17 | full=0 empty=0
-
-Final Status:
-full=0 empty=1
-
-TEST PASSED
-
-======================================
-$finish called at time : 206 ns : File "D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_sync_fifo_posedge.v" Line 127
+=== TEST 1: Fill to full ===
+=== TEST 2: Drain to empty ===
+=== TEST 3: Interleaved R/W stress ===
+MISMATCH at read #8: expected=0x24 got=0x07
+MISMATCH at read #9: expected=0x81 got=0x24
+MISMATCH at read #10: expected=0x09 got=0x81
+MISMATCH at read #11: expected=0x63 got=0x09
+MISMATCH at read #12: expected=0x0d got=0x63
+MISMATCH at read #13: expected=0x8d got=0x0d
+MISMATCH at read #14: expected=0x65 got=0x8d
+MISMATCH at read #15: expected=0x12 got=0x65
+MISMATCH at read #16: expected=0x01 got=0x12
+MISMATCH at read #17: expected=0x0d got=0x01
+MISMATCH at read #18: expected=0x76 got=0x0d
+MISMATCH at read #19: expected=0x3d got=0x76
+MISMATCH at read #20: expected=0xed got=0x3d
+MISMATCH at read #21: expected=0x8c got=0xed
+MISMATCH at read #22: expected=0xf9 got=0x8c
+MISMATCH at read #23: expected=0xc6 got=0xf9
+MISMATCH at read #24: expected=0xaa got=0xc6
