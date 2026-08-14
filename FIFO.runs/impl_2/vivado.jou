@@ -1,12 +1,14 @@
 #-----------------------------------------------------------
-# Vivado v2018.3 (64-bit)
-# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
-# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sun May 10 20:43:33 2026
-# Process ID: 11816
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Fri Aug 14 17:18:43 2026
+# Process ID: 26608
 # Current directory: D:/RTL_Design/FIFO/FIFO.runs/impl_2
-# Command line: vivado.exe -log async_fifo_posedge.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source async_fifo_posedge.tcl -notrace
-# Log file: D:/RTL_Design/FIFO/FIFO.runs/impl_2/async_fifo_posedge.vdi
+# Command line: vivado.exe -log async_fifo_negedge.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source async_fifo_negedge.tcl -notrace
+# Log file: D:/RTL_Design/FIFO/FIFO.runs/impl_2/async_fifo_negedge.vdi
 # Journal file: D:/RTL_Design/FIFO/FIFO.runs/impl_2\vivado.jou
+# Running On: SHUBHAM, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 8, Host memory: 16831 MB
 #-----------------------------------------------------------
-source async_fifo_posedge.tcl -notrace
+source async_fifo_negedge.tcl -notrace

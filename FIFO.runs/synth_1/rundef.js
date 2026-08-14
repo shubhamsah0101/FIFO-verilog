@@ -1,16 +1,17 @@
 //
 // Vivado(TM)
 // rundef.js: a Vivado-generated Runs Script for WSH 5.1/5.6
-// Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+// Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+// Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //
 
 var WshShell = new ActiveXObject( "WScript.Shell" );
 var ProcEnv = WshShell.Environment( "Process" );
 var PathVal = ProcEnv("PATH");
 if ( PathVal.length == 0 ) {
-  PathVal = "D:/Vivado_2018/SDK/2018.3/bin;D:/Vivado_2018/Vivado/2018.3/ids_lite/ISE/bin/nt64;D:/Vivado_2018/Vivado/2018.3/ids_lite/ISE/lib/nt64;D:/Vivado_2018/Vivado/2018.3/bin;";
+  PathVal = "D:/VIVADO_SIFTWARE/Vivado/2023.1/ids_lite/ISE/bin/nt64;D:/VIVADO_SIFTWARE/Vivado/2023.1/ids_lite/ISE/lib/nt64;D:/VIVADO_SIFTWARE/Vivado/2023.1/bin;";
 } else {
-  PathVal = "D:/Vivado_2018/SDK/2018.3/bin;D:/Vivado_2018/Vivado/2018.3/ids_lite/ISE/bin/nt64;D:/Vivado_2018/Vivado/2018.3/ids_lite/ISE/lib/nt64;D:/Vivado_2018/Vivado/2018.3/bin;" + PathVal;
+  PathVal = "D:/VIVADO_SIFTWARE/Vivado/2023.1/ids_lite/ISE/bin/nt64;D:/VIVADO_SIFTWARE/Vivado/2023.1/ids_lite/ISE/lib/nt64;D:/VIVADO_SIFTWARE/Vivado/2023.1/bin;" + PathVal;
 }
 
 ProcEnv("PATH") = PathVal;
@@ -23,7 +24,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log async_fifo_posedge.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source async_fifo_posedge.tcl" );
+         "-log async_fifo_negedge.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source async_fifo_negedge.tcl" );
 
 
 

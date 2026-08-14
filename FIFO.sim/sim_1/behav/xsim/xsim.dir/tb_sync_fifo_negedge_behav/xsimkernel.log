@@ -1,7 +1,7 @@
-Running: xsim.dir/tb_sync_fifo_negedge_behav/xsimk.exe -simmode gui -wdb tb_sync_fifo_negedge_behav.wdb -simrunnum 0 -socket 56235
+Running: xsim.dir/tb_sync_fifo_negedge_behav/xsimk.exe -simmode gui -wdb tb_sync_fifo_negedge_behav.wdb -simrunnum 0 -socket 53243
 Design successfully loaded
-Design Loading Memory Usage: 7980 KB (Peak: 7980 KB)
-Design Loading CPU Usage: 0 ms
+Design Loading Memory Usage: 9592 KB (Peak: 9592 KB)
+Design Loading CPU Usage: 15 ms
 Simulation completed
-Simulation Memory Usage: 8676 KB (Peak: 8676 KB)
-Simulation CPU Usage: 15 ms
+Simulation Memory Usage: 10364 KB (Peak: 10364 KB)
+Simulation CPU Usage: 46 ms
