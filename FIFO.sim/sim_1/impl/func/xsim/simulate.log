@@ -1,0 +1,48 @@
+Time resolution is 1 ps
+=== Writing 8 values ===
+Wrote: 0x11
+Wrote: 0x22
+Wrote: 0x33
+Wrote: 0x44
+Wrote: 0x55
+Wrote: 0x66
+Wrote: 0x77
+Wrote: 0x88
+NOTE: full flag not asserted after 8 writes (check DEPTH parameter)
+=== Reading 8 values and checking ===
+MISMATCH at read #0: expected=0x11 got=0x33
+MISMATCH at read #1: expected=0x22 got=0x44
+MISMATCH at read #2: expected=0x33 got=0x55
+MISMATCH at read #3: expected=0x44 got=0x66
+MISMATCH at read #4: expected=0x55 got=0x77
+MISMATCH at read #5: expected=0x66 got=0x88
+MISMATCH at read #6: expected=0x77 got=0x88
+Read #7 OK: 0x88
+
+================= SUMMARY =================
+RESULT: 7 MISMATCH(ES) FOUND - TEST FAILED
+$finish called at time : 484 ns : File "D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_async_fifo_posedge.v" Line 92
+=== Writing 8 values ===
+Wrote: 0x11
+Wrote: 0x22
+Wrote: 0x33
+Wrote: 0x44
+Wrote: 0x55
+Wrote: 0x66
+Wrote: 0x77
+Wrote: 0x88
+NOTE: full flag not asserted after 8 writes (check DEPTH parameter)
+=== Reading 8 values and checking ===
+MISMATCH at read #0: expected=0x11 got=0x33
+MISMATCH at read #1: expected=0x22 got=0x44
+MISMATCH at read #2: expected=0x33 got=0x55
+MISMATCH at read #3: expected=0x44 got=0x66
+MISMATCH at read #4: expected=0x55 got=0x77
+MISMATCH at read #5: expected=0x66 got=0x88
+MISMATCH at read #6: expected=0x77 got=0x88
+Read #7 OK: 0x88
+
+================= SUMMARY =================
+RESULT: 7 MISMATCH(ES) FOUND - TEST FAILED
+$finish called at time : 484 ns : File "D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_async_fifo_posedge.v" Line 92
+INFO: xsimkernel Simulation Memory Usage: 20756 KB (Peak: 20756 KB), Simulation CPU Usage: 42671 ms

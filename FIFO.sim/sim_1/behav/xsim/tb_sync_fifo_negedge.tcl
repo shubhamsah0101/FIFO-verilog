@@ -8,4 +8,12 @@ if { [string length $curr_wave] == 0 } {
   }
 }
 
+open_saif "power.saif"
+set curr_xsim_wave_scope [current_scope]
+current_scope /tb_sync_fifo_negedge/dut
+log_saif [get_objects -filter {type==in_port || type==out_port || type==inout_port} *]
+current_scope $curr_xsim_wave_scope
+unset curr_xsim_wave_scope
+
 run 1000ns
+close_saif

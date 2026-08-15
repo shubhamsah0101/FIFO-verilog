@@ -3,12 +3,12 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Fri Aug 14 17:16:28 2026
-# Process ID: 11656
+# Start of session at: Sat Aug 15 15:48:20 2026
+# Process ID: 26992
 # Current directory: D:/RTL_Design/FIFO/FIFO.runs/synth_1
-# Command line: vivado.exe -log async_fifo_negedge.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source async_fifo_negedge.tcl
-# Log file: D:/RTL_Design/FIFO/FIFO.runs/synth_1/async_fifo_negedge.vds
+# Command line: vivado.exe -log sync_fifo_posedge.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source sync_fifo_posedge.tcl
+# Log file: D:/RTL_Design/FIFO/FIFO.runs/synth_1/sync_fifo_posedge.vds
 # Journal file: D:/RTL_Design/FIFO/FIFO.runs/synth_1\vivado.jou
 # Running On: SHUBHAM, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 8, Host memory: 16831 MB
 #-----------------------------------------------------------
-source async_fifo_negedge.tcl -notrace
+source sync_fifo_posedge.tcl -notrace

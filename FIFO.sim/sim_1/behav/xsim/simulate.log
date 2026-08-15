@@ -1,0 +1,39 @@
+Time resolution is 1 ps
+
+======================================
+ NEGATIVE EDGE SYNCHRONOUS FIFO TEST 
+======================================
+
+Reset Completed
+full=0 empty=1
+
+--- Writing Data ---
+WRITE : 0 -> data = 0x20 | full=0 empty=1
+WRITE : 1 -> data = 0x21 | full=0 empty=0
+WRITE : 2 -> data = 0x22 | full=0 empty=0
+WRITE : 3 -> data = 0x23 | full=0 empty=0
+WRITE : 4 -> data = 0x24 | full=0 empty=0
+WRITE : 5 -> data = 0x25 | full=0 empty=0
+WRITE : 6 -> data = 0x26 | full=0 empty=0
+WRITE : 7 -> data = 0x27 | full=0 empty=0
+
+After Write:
+full=1 empty=0
+
+--- Reading Data ---
+READ  : 0 -> data = 0x20 | full=0 empty=0
+READ  : 1 -> data = 0x21 | full=0 empty=0
+READ  : 2 -> data = 0x22 | full=0 empty=0
+READ  : 3 -> data = 0x23 | full=0 empty=0
+READ  : 4 -> data = 0x24 | full=0 empty=0
+READ  : 5 -> data = 0x25 | full=0 empty=0
+READ  : 6 -> data = 0x26 | full=0 empty=0
+READ  : 7 -> data = 0x27 | full=0 empty=1
+
+Final Status:
+full=0 empty=1
+
+TEST PASSED
+
+======================================
+$finish called at time : 202 ns : File "D:/RTL_Design/FIFO/FIFO.srcs/sim_1/new/tb_sync_fifo_negedge.v" Line 128

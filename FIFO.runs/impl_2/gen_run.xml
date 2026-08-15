@@ -1,102 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_2" LaunchPart="xc7a35tcpg236-1" LaunchTime="1786708114">
-  <File Type="OPT-HWDEF" Name="async_fifo_negedge.hwdef"/>
-  <File Type="ROUTE-BUS-SKEW" Name="async_fifo_negedge_bus_skew_routed.rpt"/>
-  <File Type="PA-DCP" Name="async_fifo_negedge.dcp"/>
-  <File Type="ROUTE-PWR" Name="async_fifo_negedge_power_routed.rpt"/>
-  <File Type="PA-TCL" Name="async_fifo_negedge.tcl"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="async_fifo_negedge_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="async_fifo_negedge_timing_summary_init.rpt"/>
-  <File Type="ROUTE-PWR-SUM" Name="async_fifo_negedge_power_summary_routed.pb"/>
-  <File Type="OPT-RQA-PB" Name="async_fifo_negedge_rqa_opted.pb"/>
-  <File Type="REPORTS-TCL" Name="async_fifo_negedge_reports.tcl"/>
-  <File Type="OPT-TIMING" Name="async_fifo_negedge_timing_summary_opted.rpt"/>
-  <File Type="OPT-DCP" Name="async_fifo_negedge_opt.dcp"/>
-  <File Type="OPT-DRC" Name="async_fifo_negedge_drc_opted.rpt"/>
-  <File Type="PWROPT-DCP" Name="async_fifo_negedge_pwropt.dcp"/>
-  <File Type="PWROPT-DRC" Name="async_fifo_negedge_drc_pwropted.rpt"/>
-  <File Type="PWROPT-TIMING" Name="async_fifo_negedge_timing_summary_pwropted.rpt"/>
-  <File Type="PLACE-DCP" Name="async_fifo_negedge_placed.dcp"/>
-  <File Type="PLACE-IO" Name="async_fifo_negedge_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="async_fifo_negedge_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL" Name="async_fifo_negedge_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="async_fifo_negedge_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="async_fifo_negedge_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="async_fifo_negedge_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="async_fifo_negedge_incremental_reuse_pre_placed.rpt"/>
-  <File Type="BG-BIN" Name="async_fifo_negedge.bin"/>
-  <File Type="PLACE-TIMING" Name="async_fifo_negedge_timing_summary_placed.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="async_fifo_negedge_power_routed.rpx"/>
-  <File Type="PLACE-RQA-PB" Name="async_fifo_negedge_rqa_placed.pb"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="async_fifo_negedge_postplace_pwropt.dcp"/>
-  <File Type="BITSTR-MSK" Name="async_fifo_negedge.msk"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="async_fifo_negedge_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="async_fifo_negedge_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="async_fifo_negedge_drc_physopted.rpt"/>
-  <File Type="BITSTR-RBT" Name="async_fifo_negedge.rbt"/>
-  <File Type="PHYSOPT-TIMING" Name="async_fifo_negedge_timing_summary_physopted.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="async_fifo_negedge_routed_error.dcp"/>
-  <File Type="ROUTE-DCP" Name="async_fifo_negedge_routed.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="async_fifo_negedge_routed_bb.dcp"/>
-  <File Type="ROUTE-DRC" Name="async_fifo_negedge_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="async_fifo_negedge_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="async_fifo_negedge_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="async_fifo_negedge_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="async_fifo_negedge_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="async_fifo_negedge_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-RQS-PB" Name="async_fifo_negedge_rqs_routed.pb"/>
-  <File Type="ROUTE-STATUS" Name="async_fifo_negedge_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="async_fifo_negedge_route_status.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="async_fifo_negedge_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-PB" Name="async_fifo_negedge_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="async_fifo_negedge_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="async_fifo_negedge_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="async_fifo_negedge_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="async_fifo_negedge_bus_skew_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="async_fifo_negedge_bus_skew_routed.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="async_fifo_negedge_postroute_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="async_fifo_negedge_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="async_fifo_posedge_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="async_fifo_posedge_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="async_fifo_posedge_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="async_fifo_posedge_bus_skew_postroute_physopted.rpt"/>
-  <File Type="BG-BIT" Name="async_fifo_negedge.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="async_fifo_posedge_bus_skew_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="async_fifo_posedge_bus_skew_postroute_physopted.rpx"/>
-  <File Type="BITSTR-NKY" Name="async_fifo_negedge.nky"/>
-  <File Type="BITSTR-BMM" Name="async_fifo_negedge_bd.bmm"/>
-  <File Type="BITSTR-MMI" Name="async_fifo_negedge.mmi"/>
-  <File Type="PDI-FILE" Name="async_fifo_negedge.pdi"/>
-  <File Type="BOOT-PDI-FILE" Name="async_fifo_negedge_soc.pdi"/>
-  <File Type="PL-PDI-FILE" Name="async_fifo_negedge_pld.pdi"/>
-  <File Type="RCFI_FILE" Name="async_fifo_negedge.rcfi"/>
-  <File Type="CFI_FILE" Name="async_fifo_negedge.cfi"/>
-  <File Type="RNPI_FILE" Name="async_fifo_negedge.rnpi"/>
-  <File Type="NPI_FILE" Name="async_fifo_negedge.npi"/>
-  <File Type="RBD_FILE" Name="async_fifo_negedge.rbd"/>
+<GenRun Id="impl_2" LaunchPart="xc7a35tcpg236-1" LaunchTime="1786789173">
+  <File Type="ROUTE-PWR" Name="sync_fifo_posedge_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="sync_fifo_posedge.tcl"/>
+  <File Type="ROUTE-PWR-SUM" Name="sync_fifo_posedge_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="sync_fifo_posedge_reports.tcl"/>
+  <File Type="BITSTR-MSK" Name="sync_fifo_posedge.msk"/>
+  <File Type="ROUTE-CLK" Name="sync_fifo_posedge_clock_utilization_routed.rpt"/>
+  <File Type="RDI-RDI" Name="sync_fifo_posedge.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="sync_fifo_posedge_bus_skew_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="sync_fifo_posedge.bit"/>
+  <File Type="BG-DRC" Name="sync_fifo_posedge.drc"/>
+  <File Type="BG-BGN" Name="sync_fifo_posedge.bgn"/>
+  <File Type="BG-BIN" Name="sync_fifo_posedge.bin"/>
+  <File Type="BITSTR-RBT" Name="sync_fifo_posedge.rbt"/>
+  <File Type="BITSTR-NKY" Name="sync_fifo_posedge.nky"/>
+  <File Type="BITSTR-BMM" Name="sync_fifo_posedge_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="sync_fifo_posedge.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="sync_fifo_posedge_methodology_drc_routed.rpt"/>
+  <File Type="BITSTR-SYSDEF" Name="sync_fifo_posedge.sysdef"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="async_fifo_negedge.ltx"/>
-  <File Type="BITSTR-SYSDEF" Name="async_fifo_negedge.sysdef"/>
-  <File Type="BG-BGN" Name="async_fifo_negedge.bgn"/>
-  <File Type="BG-DRC" Name="async_fifo_negedge.drc"/>
-  <File Type="RDI-RDI" Name="async_fifo_negedge.vdi"/>
+  <File Type="BITSTR-LTX" Name="sync_fifo_posedge.ltx"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="ROUTE-RQS" Name="async_fifo_negedge_routed.rqs"/>
-  <File Type="POSTROUTE-PHYSOPT-RQS" Name="async_fifo_negedge_postroute_physopted.rqs"/>
+  <File Type="OPT-DRC" Name="sync_fifo_posedge_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="sync_fifo_posedge.hwdef"/>
+  <File Type="PLACE-IO" Name="sync_fifo_posedge_io_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="sync_fifo_posedge_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="sync_fifo_posedge_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="sync_fifo_posedge_control_sets_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="sync_fifo_posedge_incremental_reuse_pre_placed.rpt"/>
+  <File Type="ROUTE-DRC" Name="sync_fifo_posedge_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="sync_fifo_posedge_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="sync_fifo_posedge_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="sync_fifo_posedge_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="sync_fifo_posedge_route_status.pb"/>
+  <File Type="ROUTE-DCP" Name="sync_fifo_posedge_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="sync_fifo_posedge_routed_error.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="sync_fifo_posedge_routed_bb.dcp"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="sync_fifo_posedge_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="sync_fifo_posedge_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="sync_fifo_posedge_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="sync_fifo_posedge_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="sync_fifo_posedge_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="sync_fifo_posedge_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="sync_fifo_posedge_bus_skew_routed.rpx"/>
+  <File Type="OPT-DCP" Name="sync_fifo_posedge_opt.dcp"/>
+  <File Type="PLACE-DCP" Name="sync_fifo_posedge_placed.dcp"/>
+  <File Type="PWROPT-DCP" Name="sync_fifo_posedge_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="sync_fifo_posedge_postplace_pwropt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="sync_fifo_posedge_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="sync_fifo_posedge_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="sync_fifo_posedge_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="sync_fifo_posedge_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="sync_fifo_posedge_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="sync_fifo_posedge_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="sync_fifo_posedge_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="sync_fifo_posedge_bus_skew_postroute_physopted.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="sync_fifo_posedge_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="sync_fifo_posedge_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="sync_fifo_posedge_methodology_drc_routed.rpx"/>
+  <File Type="PDI-FILE" Name="sync_fifo_posedge.pdi"/>
+  <File Type="BOOT-PDI-FILE" Name="sync_fifo_posedge_soc.pdi"/>
+  <File Type="PL-PDI-FILE" Name="sync_fifo_posedge_pld.pdi"/>
+  <File Type="RCFI_FILE" Name="sync_fifo_posedge.rcfi"/>
+  <File Type="CFI_FILE" Name="sync_fifo_posedge.cfi"/>
+  <File Type="RNPI_FILE" Name="sync_fifo_posedge.rnpi"/>
+  <File Type="NPI_FILE" Name="sync_fifo_posedge.npi"/>
+  <File Type="RBD_FILE" Name="sync_fifo_posedge.rbd"/>
+  <File Type="ROUTE-RQS" Name="sync_fifo_posedge_routed.rqs"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="sync_fifo_posedge_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/async_fifo_negedge.v">
+    <File Path="$PSRCDIR/sources_1/new/sync_fifo_posedge.v">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/async_fifo_posedge.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -110,7 +87,15 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/sync_fifo_posedge.v">
+    <File Path="$PSRCDIR/sources_1/new/async_fifo_negedge.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/async_fifo_posedge.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -120,7 +105,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="async_fifo_negedge"/>
+      <Option Name="TopModule" Val="sync_fifo_posedge"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
@@ -171,5 +156,6 @@
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
+    <Step Id="write_device_image"/>
   </Strategy>
 </GenRun>

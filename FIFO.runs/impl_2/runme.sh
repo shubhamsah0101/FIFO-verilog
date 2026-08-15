@@ -43,6 +43,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .init_design.begin.rst
-EAStep vivado -log async_fifo_negedge.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source async_fifo_negedge.tcl -notrace
+EAStep vivado -log sync_fifo_posedge.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source sync_fifo_posedge.tcl -notrace
 
 

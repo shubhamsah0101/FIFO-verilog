@@ -26,7 +26,7 @@ eval( EAInclude(ISEJScriptLib) );
 // pre-commands:
 ISETouchFile( "init_design", "begin" );
 ISEStep( "vivado",
-         "-log async_fifo_negedge.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source async_fifo_negedge.tcl -notrace" );
+         "-log sync_fifo_posedge.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source sync_fifo_posedge.tcl -notrace" );
 
 
 

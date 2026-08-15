@@ -1,0 +1,7 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"tb_async_fifo_posedge_func_impl.v" \
+"../../../../../FIFO.srcs/sim_1/new/tb_async_fifo_posedge.v" \
+
+# Do not sort compile order
+nosort
