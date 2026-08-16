@@ -1,285 +1,77 @@
-# Synchronous and Asynchronous FIFO Design using Verilog HDL
+# FIFO-Verilog: A Verified Comparative Analysis of Synchronous and Asynchronous FIFO Designs
 
-![Verilog](https://img.shields.io/badge/Language-Verilog-blue)
-![RTL Design](https://img.shields.io/badge/Domain-RTL%20Design-orange)
+Verilog HDL implementations of four FIFO variants — synchronous and asynchronous, each with positive- and negative-edge triggering — rigorously verified and benchmarked under a single, consistent methodology in AMD Vivado.
 
-## Overview
+This repository accompanies the paper *"A Verified Comparative Analysis of Synchronous and Asynchronous FIFO Designs: Resource, Timing, and Power Characterization."*
 
-This project implements and analyzes four FIFO (First-In First-Out) architectures using Verilog HDL.
+## Key Finding
 
-Implemented FIFO variants:
+During development, the original asynchronous FIFO implementation was found to synchronize **raw binary pointers** across clock domains — a known clock-domain-crossing (CDC) hazard, since multiple bits of a binary counter can change simultaneously, meaning a synchronizer cannot guarantee the sampled value ever existed as a valid state in the source domain. One variant additionally used only a **single-stage** synchronizer rather than the standard dual-flip-flop scheme.
 
-* Synchronous FIFO - Positive Edge Triggered
-* Synchronous FIFO - Negative Edge Triggered
-* Asynchronous FIFO - Positive Edge Triggered
-* Asynchronous FIFO - Negative Edge Triggered
+This was identified, corrected to a standard **Gray-code pointer + dual-flip-flop synchronizer** design, and verified with self-checking testbenches before any result in this repository or the paper was generated. All four corrected variants passed functional verification with **zero data mismatches** across clock domains.
 
-The project focuses on RTL design, FIFO architecture, clock domain crossing (CDC), metastability handling, pointer synchronization, and timing analysis.
+## FIFO Variants
 
----
+| Variant | File | Clock domains | Pointer encoding | Synchronizer |
+|---|---|---|---|---|
+| Synchronous (positive edge) | `sync_fifo_posedge.v` | 1 | Binary | — |
+| Synchronous (negative edge) | `sync_fifo_negedge.v` | 1 | Binary | — |
+| Asynchronous (positive edge) | `async_fifo_posedge.v` | 2 (`wclk`, `rclk`) | Gray | 2-stage (dual-FF) |
+| Asynchronous (negative edge) | `async_fifo_negedge.v` | 2 (`wclk`, `rclk`) | Gray | 2-stage (dual-FF) |
 
-# Design Description
+All variants implement an 8-entry, 8-bit-wide FIFO with standard full/empty status flags. Within each circuit type, the positive- and negative-edge variants are architecturally identical, differing only in the active clock edge — this isolates the effect of edge polarity from confounding layout differences.
 
-## Synchronous FIFO
+## Results
 
-A synchronous FIFO uses a single clock domain for both read and write operations.
+Synthesized and implemented in **AMD Vivado 2023.3**, targeting the **Xilinx Artix-7 `xc7a35tcpg236-1`** device (same target device across all four variants for a fair comparison).
 
-Features:
+### Resource Utilization and Timing
 
-* Single clock operation
-* Binary read/write pointers
-* Full and empty flag generation
-* Simple control logic
-* Low latency operation
+| Variant | LUT | FF | BUFG | IOB | WNS (ns) |
+|---|---:|---:|---:|---:|---:|
+| Sync (+ve) | 35 | 84 | 1 | 22 | 13.042 |
+| Sync (−ve) | 35 | 84 | 1 | 22 | 3.041 |
+| Async (+ve) | 41 | 104 | 2 | 24 | 16.046 |
+| Async (−ve) | 41 | 104 | 2 | 24 | 1.064 |
 
-Architecture:
+- Synchronous and asynchronous variant pairs are each **resource-identical within their pair**, confirming edge polarity was correctly isolated.
+- Asynchronous designs require **~17–24% more LUTs/registers** than synchronous — the quantified cost of correct CDC synchronization.
+- Negative-edge variants show **substantially lower WNS** than positive-edge variants in both design types, despite identical resource usage — plausibly attributable to inverted-clock-path delay on FPGA fabric, not logic complexity.
 
-```
-              Write Enable
-                   |
-                   v
+### Power Analysis (SAIF-based, Medium confidence)
 
-          +----------------+
-Data In ->|                |-> Data Out
-          |   FIFO Memory  |
-Clock --->|                |
-          +----------------+
+| Variant | Total (W) | Dynamic (W) | Static (W) |
+|---|---:|---:|---:|
+| Sync (+ve) | 0.072 | 0.002 | 0.070 |
+| Sync (−ve) | 0.072 | 0.002 | 0.070 |
+| Async (+ve) | 0.073 | 0.003 | 0.070 |
+| Async (−ve) | 0.072 | 0.002 | 0.070 |
 
-          Single Clock Domain
-```
+Power was estimated using **simulation-activity-derived (SAIF)** methodology — real switching activity from functional simulation, not Vivado's default vectorless/statistical estimate. Static power dominates (~97%) and is essentially constant across variants, as expected for a small design on a fixed device; it is not a meaningful differentiator. Dynamic power differences are small in absolute terms (≤1 mW) and reported as *suggestive, not conclusive*, given Medium estimation confidence and the low-activity directed test stimulus used.
 
----
-
-## Asynchronous FIFO
-
-An asynchronous FIFO transfers data between two independent clock domains.
-
-Features:
-
-* Separate read and write clocks
-* Independent read/write pointers
-* Gray code pointer synchronization
-* Dual flip-flop synchronizers
-* CDC safe data transfer
-
-Architecture:
+## Repository Structure
 
 ```
-        Write Clock Domain
-
-            Write Pointer
-                  |
-                  v
-           Binary to Gray
-                  |
-                  v
-        Synchronizer Circuit
-                  |
-                  v
-
-         Read Clock Domain
+├── sync_fifo_posedge.v              # Synchronous FIFO, positive edge
+├── sync_fifo_negedge.v        # Synchronous FIFO, negative edge (flag logic aligned with posedge)
+├── async_fifo_posedge.v       # Asynchronous FIFO, positive edge (Gray-code + dual-FF, corrected)
+├── async_fifo_negedge.v       # Asynchronous FIFO, negative edge (Gray-code + dual-FF, corrected)
+├── tb_sync_fifo_posedge.v     # Testbench, sync posedge
+├── tb_sync_fifo_negedge.v     # Testbench, sync negedge
+├── tb_async_fifo_posedge.v    # Self-checking testbench, async posedge
+├── tb_async_fifo_negedge.v    # Self-checking testbench, async negedge
+└── README.md
 ```
 
----
+## Verification Methodology
 
-# Clock Domain Crossing (CDC)
+All four variants are verified with **self-checking** testbenches: each applies a sequence of input values and, for the asynchronous variants, automatically compares every read against an expected-value reference queue — reporting mismatches explicitly rather than requiring manual waveform inspection.
 
-Asynchronous FIFO requires safe communication between different clock domains.
+Verification evidence for correct clock-domain crossing was drawn from **internally-generated design signals** (e.g. the registered `rdata` output, internal pointer registers) rather than testbench-driven input signals — an input signal's waveform reflects when the testbench applied it, not when the design actually sampled it.
 
-Binary counters can cause synchronization problems because multiple bits can change simultaneously.
+## Known Limitations
 
-Example:
-
-```
-Binary:
-0111 -> 1000
-```
-
-To overcome this issue, Gray code pointers are used.
-
-Example:
-
-```
-Gray:
-0100 -> 1100
-```
-
-Only one bit changes during transition, reducing metastability probability.
-
----
-
-# Synchronizer Design
-
-A dual flip-flop synchronizer is used for pointer synchronization.
-
-```
-Async Signal
-
-      |
-      v
-
-+-------------+
-| Flip-Flop 1 |
-+-------------+
-      |
-      v
-
-+-------------+
-| Flip-Flop 2 |
-+-------------+
-      |
-      v
-
-Synchronized Signal
-```
-
-This allows metastability to settle before the signal is used in the receiving clock domain.
-
----
-
-# FIFO Operation
-
-## Write Operation
-
-Data is written when:
-
-```
-Write Enable = 1
-FIFO is not Full
-```
-
-Operation:
-
-```
-Input Data
-     |
-     v
-FIFO Memory
-     |
-     v
-Increment Write Pointer
-```
-
----
-
-## Read Operation
-
-Data is read when:
-
-```
-Read Enable = 1
-FIFO is not Empty
-```
-
-Operation:
-
-```
-FIFO Memory
-     |
-     v
-Output Data
-     |
-     v
-Increment Read Pointer
-```
-
----
-
-# Verification
-
-A complete Verilog testbench was developed to verify all FIFO designs.
-
-Verification includes:
-
-* Reset functionality
-* Write operation
-* Read operation
-* Simultaneous read/write operation
-* FIFO full condition
-* FIFO empty condition
-* Clock domain crossing behavior
-
-Validation:
-
-```
-Data Written == Data Read
-```
-
-Result:
-
-```
-PASS
-```
-
----
-
-# Implementation Results
-
-FPGA synthesis results:
-
-| Parameter           | Result     |
-| ------------------- | ---------- |
-| FIFO Size           | 8 x 8      |
-| Operating Frequency | 80 MHz     |
-| Setup Slack         | 22.467 ns  |
-| LUT Utilization     | 35-38 LUTs |
-| Power Consumption   | 72 mW      |
-| Timing Violations   | 0          |
-
----
-
-# Performance Comparison
-
-| Feature       | Synchronous FIFO   | Asynchronous FIFO   |
-| ------------- | ------------------ | ------------------- |
-| Clock Domains | Single             | Multiple            |
-| CDC Required  | No                 | Yes                 |
-| Complexity    | Low                | High                |
-| Latency       | Lower              | Higher              |
-| Application   | Same clock systems | Multi-clock systems |
-
----
-
-# Key Learning Outcomes
-
-* RTL design using Verilog HDL
-* FIFO memory architecture
-* Read/write pointer logic
-* Full and empty detection
-* Clock domain crossing techniques
-* Gray code implementation
-* Metastability reduction
-* FPGA synthesis and timing analysis
-
----
-
-# Tools Used
-
-* Verilog HDL
-* Xilinx Vivado
-* FPGA Timing Analyzer
-* Simulation Tools
-
----
-
-# Future Improvements
-
-* Parameterized FIFO depth and width
-* SystemVerilog Assertions (SVA)
-* UVM based verification
-
----
-
-# Author
-
-**Shubham Kumar Sah**
-
-B.Tech Electronics and Communication Engineering
-
-Areas of Interest:
-
-* VLSI Design
-* RTL Design
-* ASIC Design
-* Processor Architecture
-* Functional Verification
+- All results correspond to a single configuration (8-entry depth, 8-bit width); scalability across depth/width/clock-ratio was not evaluated.
+- Power results use a fixed, low-activity directed stimulus; a higher-activity or randomized stimulus would better characterize dynamic power differences.
+- The original (buggy) binary-pointer design was corrected prior to evaluation but was not separately stress-tested as a negative control to empirically demonstrate the failure mode it was designed to prevent.
+- Word-level clock gating and other power-reduction techniques, previously demonstrated for synchronous FIFOs, have not yet been applied to the asynchronous, CDC-correct design here.
