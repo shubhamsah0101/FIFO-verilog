@@ -2,8 +2,6 @@
 
 Verilog HDL implementations of four FIFO variants — synchronous and asynchronous, each with positive- and negative-edge triggering — rigorously verified and benchmarked under a single, consistent methodology in AMD Vivado.
 
-This repository accompanies the paper *"A Verified Comparative Analysis of Synchronous and Asynchronous FIFO Designs: Resource, Timing, and Power Characterization."*
-
 ## Key Finding
 
 During development, the original asynchronous FIFO implementation was found to synchronize **raw binary pointers** across clock domains — a known clock-domain-crossing (CDC) hazard, since multiple bits of a binary counter can change simultaneously, meaning a synchronizer cannot guarantee the sampled value ever existed as a valid state in the source domain. One variant additionally used only a **single-stage** synchronizer rather than the standard dual-flip-flop scheme.
